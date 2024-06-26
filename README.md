@@ -49,8 +49,9 @@ source env/bin/activate
 ```
 
 ### 5. Configurer l'API key OpenAI
-Modifiez la ligne suivante dans le fichier app.py pour y mettre votre propre clé API OpenAI :
+Modifiez la ligne suivante dans le fichier [app.py](https://github.com/hrandrIAga/LocalGPT4o/blob/main/app.py) pour y mettre votre propre clé API OpenAI :
 ```python
+# Définissez votre clé API OpenAI ici
 openai.api_key = ""
 ```
 ## Utilisation
