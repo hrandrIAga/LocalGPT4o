@@ -69,9 +69,9 @@ Puis cliquer/rendez vous sur l'URL afficher sur le terminal
 * **Upload des fichiers :** Utilisez le bouton de téléchargement pour charger des fichiers et afficher leur contenu.
 
 ### 3. Quitter l'application
-a. envoyer 'exit', 'quit' ou 'bye'
-b. Sur le terminal tapez CTRL+C
-c. Désactiver l'environnemnet virtuel :
+a. envoyer 'exit', 'quit' ou 'bye'  
+b. Sur le terminal tapez CTRL+C  
+c. Désactiver l'environnemnet virtuel :  
 ```bash
 deactivate
 ```
