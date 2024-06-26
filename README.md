@@ -39,13 +39,12 @@ pip --version
 ```
 ### 3. Créer un environnement virtuel
 ```bash
-python3 -m venv env
-source env/bin/activate
+python3 -m venv env #uniquement lors du premier lancement
+source env/bin/activate #à chaque fois
 ```
 ### 4. Installer les libraires python
 ```bash
-python3 -m venv env
-source env/bin/activate
+pip install -r requirements.txt
 ```
 
 ### 5. Configurer l'API key OpenAI
