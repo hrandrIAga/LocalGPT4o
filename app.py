@@ -9,7 +9,7 @@ openai.api_key = ""
 def get_gpt4_response(messages):
     # Fonction pour obtenir une réponse de GPT-4
     response = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-4o",
         messages=messages,
         n=1,
         stop=None,
