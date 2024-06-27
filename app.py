@@ -6,11 +6,10 @@ import io
 
 # Définissez votre clé API OpenAI ici
 openai.api_key = ""
-
 def get_gpt4_response(messages):
     # Fonction pour obtenir une réponse de GPT-4
     response = openai.ChatCompletion.create(
-        model="gpt-4o",
+        model="gpt-4",
         messages=messages,
         n=1,
         stop=None,
@@ -84,24 +83,21 @@ bubble_css = """
 # Application du CSS pour les bulles de conversation
 st.markdown(bubble_css, unsafe_allow_html=True)
 
-def display_message(message):
+def display_message(message, idx):
     # Fonction pour afficher un message avec détection du type
-    content = message["content"]
+    content = message["content"] 
 
-    if "```" in content or any(keyword in content.lower() for keyword in ["dear", "sincerely", "regards", "best"]):
-        # Affichage hors des bulles pour le code ou les e-mails structurés
-        st.markdown(f"**{message['role'].capitalize()}:**")
-        st.markdown(content)
+    if message['role'] == 'user':
+        st.markdown(f'<div class="bubble-container"><div class="user-bubble">Hrandria: {content}</div></div>', unsafe_allow_html=True)
     else:
-        # Affichage dans les bulles
-        if message['role'] == 'user':
-            st.markdown(f'<div class="bubble-container"><div class="user-bubble">Hrandria: {content}</div></div>', unsafe_allow_html=True)
-        else:
+        if idx == 1:
             st.markdown(f'<div class="bubble-container"><div class="assistant-bubble">GPT-4: {content}</div></div>', unsafe_allow_html=True)
+        else:
+            st.markdown(f'---\n\n**GPT-4:**\n\n{content}\n\n---', unsafe_allow_html=True)
 
 # Affichage des messages de la conversation
-for message in st.session_state.messages:
-    display_message(message)
+for idx, message in enumerate(st.session_state.messages):
+    display_message(message, idx)
 
 # Entrée utilisateur pour la conversation
 user_input = st.text_input("Hrandria :", key="input_text")
